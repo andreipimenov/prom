@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  server:
+    image: alpine:latest
+    env_file:
+      - ./server.env
+    ports:
+      - 8080:8080
+    volumes:
+      - ../dist:/dist
+    working_dir: /dist
+    command: /dist/server
+
+  client:
+    image: alpine:latest
+    env_file:
+      - ./client.env
+    volumes:
+      - ../dist:/dist
+    working_dir: /dist
+    command: /dist/client
+    depends_on:
+      - server
+
+  prometheus:
+    image: prom/prometheus:v2.24.0
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-vol:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9090:9090
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/dashboards:/etc/dashboards
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana-vol:/var/lib/grafana
+
+volumes:
+  prometheus-vol:
+  grafana-vol:
