@@ -274,7 +274,7 @@
                     "editorMode": "code",
                     "expr": "histogram_quantile(0.5, sum(rate(http_request_duration_bucket[$__rate_interval])) by (le))",
                     "hide": false,
-                    "legendFormat": "Mean",
+                    "legendFormat": "Median",
                     "range": true,
                     "refId": "B"
                 }
