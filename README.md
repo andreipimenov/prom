@@ -4,7 +4,7 @@ This repository is for everyone who is interested in collecting and displaying m
 The stack is fully configured, so you can use it as a starting point.
 After launching the applications, you will be able to observe the graphs at the standard address `http://127.0.0.1:3000`. Use login `admin` and password `admin` to login to Grafana.
 
-<a href="https://user-images.githubusercontent.com/25442973/180852928-091ee0c6-95e6-4d4d-9b2e-0b400f490ce0.png"><img width="1343" alt="image" src="https://user-images.githubusercontent.com/25442973/180852928-091ee0c6-95e6-4d4d-9b2e-0b400f490ce0.png"></a>
+<a href="https://user-images.githubusercontent.com/25442973/183067953-7cc78499-2cce-402c-b471-247a9ee538c4.png"><img width="1368" alt="image" src="https://user-images.githubusercontent.com/25442973/183067953-7cc78499-2cce-402c-b471-247a9ee538c4.png"></a>
 
 ## Prerequisites
 
